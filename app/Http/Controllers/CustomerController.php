@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index($customer_id = null)
     {
-        $customer = ['id' => '1', 'name' => '太郎'];
-        return $customer;
+        $customer = [];
+        
+        if (!empty($customer_id)) {
+         $customer = \App\Customer::select()->where('id', $customer_id)->first();   
+        }
+        return response()->json($customer);
     }
 }
