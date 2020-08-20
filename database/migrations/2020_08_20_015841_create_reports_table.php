@@ -14,8 +14,12 @@ class CreateReportsTable extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->date('visit_date');
+            $table->text('detail');
+            $table->integer('customer_id')->unsigned();
             $table->timestamps();
+            $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 
