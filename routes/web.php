@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/api/customers', function () {
-    return [];
-});
+Route::get('/api/customers', 'CustomerController@index');
