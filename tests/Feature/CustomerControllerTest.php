@@ -21,4 +21,16 @@ class CustomerControllerTest extends TestCase
 
         $response->assertJson([]);
     }
+    
+    public function testGetCustomer2()
+    {
+        $response = $this->json('GET', '/api/customers/1');
+        
+        $response->assertJson([
+            'id'         => true,
+            'name'       => true,
+            'created_at' => true,
+            'updated_at' => true,
+        ]);
+    }
 }
