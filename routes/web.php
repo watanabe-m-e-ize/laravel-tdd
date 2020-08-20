@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/api/customers/{customer_id?}', 'CustomerController@index');
